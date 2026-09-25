@@ -24,5 +24,6 @@ jobs:
         env:
           SHEET_API_URL: ${{ secrets.SHEET_API_URL }}
           API_SECRET: ${{ secrets.API_SECRET }}
+          OPENHANDLE_API_KEY: ${{ secrets.OPENHANDLE_API_KEY }}
         run: |
           python instagram_tracker.py
