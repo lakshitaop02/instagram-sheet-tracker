@@ -17,9 +17,9 @@ L = instaloader.Instaloader(
 
 
 def get_profiles():
-    r = requests.get(
+    r = requests.post(
         SHEET_API_URL,
-        params={
+        json={
             "action": "profiles",
             "secret": API_SECRET
         },
@@ -27,10 +27,18 @@ def get_profiles():
     )
 
     r.raise_for_status()
-    data = r.json()
+
+    try:
+        data = r.json()
+    except Exception:
+        print("Google Sheet API returned:")
+        print(r.text[:1000])
+        raise
 
     if not data.get("success"):
-        raise Exception(data.get("error", "Unable to read profiles"))
+        raise Exception(
+            data.get("error", "Unable to read profiles")
+        )
 
     return data["profiles"]
 
