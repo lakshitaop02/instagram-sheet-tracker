@@ -3,8 +3,8 @@ import requests
 import instaloader
 from datetime import timezone
 
-SHEET_API_URL = os.environ["SHEET_API_URL"]
-API_SECRET = os.environ["API_SECRET"]
+SHEET_API_URL = os.environ["SHEET_API_URL"].strip()
+API_SECRET = os.environ["API_SECRET"].strip()
 
 L = instaloader.Instaloader(
     download_pictures=False,
