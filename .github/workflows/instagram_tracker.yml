@@ -2,8 +2,6 @@ name: Instagram Tracker
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '*/30 * * * *'
 
 jobs:
   track-instagram:
